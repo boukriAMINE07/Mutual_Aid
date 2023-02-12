@@ -1,142 +1,174 @@
 
 <div class="container-fluid py-4" >
-  <div class="row">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-header pb-0">
-          <div class="d-flex align-items-center">
-            <p class="mb-0">Create mutual aid</p>
-          </div>
+  <div class="row ">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 ">
+    <div class="card">
+      <div class="card-header pb-0">
+        <div class="d-flex align-items-center">
+          <h4 class="mb-0">Create mutual aid</h4>
         </div>
-        <div class="card-body submit-form">
-          <div *ngIf="!submitted">
-            <p class="text-uppercase text-sm">Necessiteux Information</p>
+      </div>
+      <div class="card-body submit-form">
+        <div *ngIf="!submitted">
+          <p class="text-uppercase  text-sm">Necessiteux Information</p>
+          <div class="row">
+            <div class="col-md-6 text-center">
+
+              <div class="form-group">
+                <label for="firstName">FirstName</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="firstName"
+                  required
+                  [(ngModel)]="necessiteux.firstName"
+                  name="firstName"
+                />
+              </div>
+            </div>
+            <div class="col-md-6 text-center">
+              <div class="form-group">
+                <label for="firstName">LastName</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lastName"
+                  required
+                  [(ngModel)]="necessiteux.lastName"
+                  name="lastName"
+                />
+              </div>
+
+            </div>
+            <div class="col-md-12 text-center">
+              <div class="form-group">
+                <label for="address">Address</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="address"
+                  required
+                  [(ngModel)]="necessiteux.address"
+                  name="address"
+                />
+              </div>
+
+
+
+
+            </div>
+          </div>
+          <div class="row">
+            <hr class="horizontal dark">
+            <p class="text-uppercase text-sm">Contact Information</p>
+            <div class="col-md-6 text-center">
+              <div class="form-group">
+                <label for="phoneNumber">phoneNumber</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="phoneNumber"
+                  required
+                  [(ngModel)]="necessiteux.phoneNumber"
+                  name="phoneNumber"
+                />
+              </div>
+
+            </div>
+            <div class="col-md-6 text-center">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="email"
+                  required
+                  [(ngModel)]="necessiteux.email"
+                  name="email"
+
+                />
+              </div>
+
+            </div>
+            <div class="col-md-6 text-center">
+              <div class="form-group">
+                <label for="titre">Titre</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="titre"
+                  required
+                  [(ngModel)]="necessiteux.titre"
+                  name="titre"
+
+                />
+              </div>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <div class="form-group">
+                <label for="description">Description Situation </label>
+                <textarea
+                  type="text"
+                  class="form-control"
+                  id="description"
+                  required
+                  [(ngModel)]="necessiteux.description"
+                  name="description"
+                ></textarea>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="row">
+            <hr class="horizontal dark">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 text-center">
+
+            <div class="form-group">
+
+              <label for="firstName">Types Of Needs</label>
+              <div class="dropdown">
+                <button class="btn bg-gradient-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                  types of needs
+                </button>
+                <ul  class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+                  <li><button class="dropdown-item" value="NEED_CLOTHES" (click)="money()">NEED MONEY</button></li>
+                  <li><a class="dropdown-item" value="NEED_FOOD"  (click)="clothes()">NEED CLOTHES</a></li>
+                  <li><a class="dropdown-item" value="NEED_MEDICINE"  (click)="food()">NEED FOOD</a></li>
+                </ul>
+              </div>
+
+            </div>
+
+          </div>
+            <div class="col-md-4"></div>
+
+          </div>
+
             <div class="row">
-              <div class="col-md-6">
-
+              <div class="col-md-12">
                 <div class="form-group">
-                  <label for="firstName">FirstName</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="firstName"
-                    required
-                    [(ngModel)]="necessiteux.firstName"
-                    name="firstName"
-                  />
+                  <button (click)="saveTutorial()" class="btn btn-primary text-center btn-lg ms-auto">Create</button>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="firstName">LastName</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="lastName"
-                    required
-                    [(ngModel)]="necessiteux.lastName"
-                    name="lastName"
-                  />
-                </div>
-
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="address">Address</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="address"
-                    required
-                    [(ngModel)]="necessiteux.address"
-                    name="address"
-                  />
-                </div>
-
-
-
-
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="phoneNumber">phoneNumber</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="phoneNumber"
-                    required
-                    [(ngModel)]="necessiteux.phoneNumber"
-                    name="phoneNumber"
-                  />
-                </div>
-
-              </div>
-
-              <div class="col-md-6">
-
-                <div class="form-group">
-
-                  <label for="firstName">Types Of Needs</label>
-                  <div class="dropdown">
-                    <button class="btn bg-gradient-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                      types of needs
-                    </button>
-                    <ul  class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-                      <li><button class="dropdown-item" value="NEEDCLOTHES" (click)="money()">NEED MONEY</button></li>
-                      <li><a class="dropdown-item" value="NEEDFOOD"  (click)="clothes()">NEED CLOTHES</a></li>
-                      <li><a class="dropdown-item" value="NEEDMEDICINE"  (click)="food()">NEED FOOD</a></li>
-                    </ul>
-                  </div>
-
-                </div>
-
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="email"
-                    required
-                    [(ngModel)]="necessiteux.email"
-                    name="email"
-
-                  />
-                </div>
-
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="description">Description Situation </label>
-                  <textarea
-                    type="text"
-                    class="form-control"
-                    id="description"
-                    required
-                    [(ngModel)]="necessiteux.description"
-                    name="description"
-                  ></textarea>
-                </div>
-
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <button (click)="saveTutorial()" class="btn btn-primary text-center btn-lg ms-auto">Create</button>
-                  </div>
-                </div>
-              </div>
-
-
             </div>
-            <div *ngIf="submitted">
-              <h4>Tutorial was submitted successfully!</h4>
-              <button class="btn btn-success" (click)="newTutorial()">Add</button>
-            </div>
+
+
+
+          <div *ngIf="submitted">
+            <h4>Tutorial was submitted successfully!</h4>
+            <button class="btn btn-success" (click)="newTutorial()">Add</button>
           </div>
         </div>
       </div>
     </div>
+  </div>
+    <div class="col-md-1"></div>
+
   </div>
 </div>

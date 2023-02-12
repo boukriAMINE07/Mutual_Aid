@@ -21,7 +21,10 @@ export class NavbarComponent implements OnInit {
       var options = {
         damping: '0.5'
       }
+
       //Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+
+
     }
   })(jQuery);
   }

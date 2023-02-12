@@ -6,5 +6,6 @@ export class NecessiteuxModel {
   phoneNumber?: string;
   email?: string;
   description?: string;
+  titre?: string;
   typeAide?: string;
 }

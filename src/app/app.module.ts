@@ -10,6 +10,7 @@ import { CreateComponent } from './components/mutualAid/create/create.component'
 import { DetailsComponent } from './components/mutualAid/details/details.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { PaiementComponent } from './components/mutualAid/paiement/paiement.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {FormsModule} from "@angular/forms";
     FooterComponent,
     DashboardComponent,
     CreateComponent,
-    DetailsComponent
+    DetailsComponent,
+    PaiementComponent
   ],
   imports: [
     BrowserModule,

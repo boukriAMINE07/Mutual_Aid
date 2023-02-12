@@ -17,7 +17,8 @@ export class CreateComponent implements OnInit {
     phoneNumber: '',
     email: '',
     description: '',
-    typeAide: ''
+    typeAide: '',
+    titre:'',
 
   };
   submitted = false;
@@ -28,19 +29,21 @@ export class CreateComponent implements OnInit {
   ngOnInit(): void {
   }
   saveTutorial(): void {
-    const data = {
+    const data :NecessiteuxModel = {
       firstName: this.necessiteux.firstName,
       lastName: this.necessiteux.lastName,
       address: this.necessiteux.address,
       phoneNumber: this.necessiteux.phoneNumber,
       email: this.necessiteux.email,
       description: this.necessiteux.description,
-      typeAide: this.necessiteux.typeAide
+      typeAide: this.necessiteux.typeAide,
+      titre: this.necessiteux.titre
     };
+    console.log(data)
     this.service.create(data)
       .subscribe({
         next: (res) => {
-          console.log(res);
+
           this.router.navigate(['/dashboard']);
           this.submitted = true;
         },
@@ -58,22 +61,23 @@ export class CreateComponent implements OnInit {
       phoneNumber: '',
       email: '',
       description: '',
-      typeAide: ''
+      typeAide: '',
+      titre:''
     };
   }
 
   money() {
-    this.necessiteux.typeAide = "NEEDMONEY";
+    this.necessiteux.typeAide = "NEED_MONEY";
     console.log(this.necessiteux.typeAide);
   }
 
   clothes() {
-    this.necessiteux.typeAide = "NEEDCLOTHES";
+    this.necessiteux.typeAide = "NEED_CLOTHES";
     console.log(this.necessiteux.typeAide);
   }
 
   food() {
-    this.necessiteux.typeAide = "NEEDFOOD";
+    this.necessiteux.typeAide = "NEED_FOOD";
     console.log(this.necessiteux.typeAide);
   }
 }

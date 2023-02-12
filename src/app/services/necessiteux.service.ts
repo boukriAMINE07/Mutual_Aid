@@ -15,7 +15,8 @@ export class NecessiteuxService {
   get(id: any): Observable<NecessiteuxModel> {
     return this.http.get(`${baseUrl}/${id}`);
   }
-  create(data: any): Observable<any> {
+  create(data: NecessiteuxModel): Observable<NecessiteuxModel> {
+
     return this.http.post(baseUrl, data);
   }
 }
