@@ -19,4 +19,7 @@ export class NecessiteuxService {
 
     return this.http.post(baseUrl, data);
   }
+  findByType(type:string):Observable<NecessiteuxModel[]>{
+    const baseUrl1 = 'http://localhost:8081/findbyTypeAide';
+    return this.http.get<NecessiteuxModel[]>(`${baseUrl1}?typeAide=${type}`);}
 }

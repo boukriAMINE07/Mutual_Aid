@@ -14,6 +14,9 @@ export class DashboardComponent implements OnInit {
   intArray!: number[] ;
   //math.random
   necessiteux:NecessiteuxModel[] = [];
+  NEED_CLOTHES: string="NEED_CLOTHES";
+  NEED_FOOD: string="NEED_FOOD";
+  NEED_MONEY: string="NEED_MONEY";
 
 
   constructor(private necessiteuxService:NecessiteuxService) {
@@ -34,6 +37,15 @@ export class DashboardComponent implements OnInit {
       error => {
         console.log(error);
       });
+  }
+
+  filtrer(str:string){
+    this.necessiteuxService.findByType(str).subscribe(
+      data =>
+    {
+      this.necessiteux = data;
+    }
+    );
   }
 
 }
