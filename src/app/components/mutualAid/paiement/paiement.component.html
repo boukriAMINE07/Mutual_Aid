@@ -1,5 +1,24 @@
 <div class="container-fluid py-4">
+  <div *ngIf="isDonation==true; then thenBlock else elseBlock"></div>
+  <ng-template #thenBlock>
+    <div class="row">
+
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+          <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+          <span class="alert-text text-white"><strong> Primary! This is a primary alert—check it out!</strong></span>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #elseBlock>
   <div class="row">
+
+
     <div class="col-lg-1"></div>
 
     <div class="col-lg-10">
@@ -172,5 +191,5 @@
   </div>
   <div class="col-lg-1"></div>
 </div>
-
+  </ng-template>
 </div>

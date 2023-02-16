@@ -1,6 +1,8 @@
 
 <div class="container-fluid py-4" >
   <div class="row ">
+    <div class="col-md-6"></div>
+    <div class="col-md-6"></div>
     <div class="col-md-1"></div>
     <div class="col-md-10 ">
     <div class="card">
@@ -13,10 +15,9 @@
         <div *ngIf="!submitted">
           <p class="text-uppercase  text-sm">Necessiteux Information</p>
           <div class="row">
-            <div class="col-md-6 text-center">
-
+            <div class="col-md-4 ">
               <div class="form-group">
-                <label for="firstName">FirstName</label>
+                <label for="firstName">Prénom</label>
                 <input
                   type="text"
                   class="form-control"
@@ -24,16 +25,19 @@
                   required
                   [(ngModel)]="necessiteux.firstName"
                   name="firstName"
+                  placeholder="First Name"
+                  aria-label="First Name"
                 />
               </div>
             </div>
-            <div class="col-md-6 text-center">
+            <div class="col-md-4 ">
               <div class="form-group">
-                <label for="firstName">LastName</label>
+                <label for="firstName">Nom</label>
                 <input
                   type="text"
                   class="form-control"
                   id="lastName"
+                  placeholder="Last Name"
                   required
                   [(ngModel)]="necessiteux.lastName"
                   name="lastName"
@@ -41,48 +45,14 @@
               </div>
 
             </div>
-            <div class="col-md-12 text-center">
-              <div class="form-group">
-                <label for="address">Address</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="address"
-                  required
-                  [(ngModel)]="necessiteux.address"
-                  name="address"
-                />
-              </div>
-
-
-
-
-            </div>
-          </div>
-          <div class="row">
-            <hr class="horizontal dark">
-            <p class="text-uppercase text-sm">Contact Information</p>
-            <div class="col-md-6 text-center">
-              <div class="form-group">
-                <label for="phoneNumber">phoneNumber</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="phoneNumber"
-                  required
-                  [(ngModel)]="necessiteux.phoneNumber"
-                  name="phoneNumber"
-                />
-              </div>
-
-            </div>
-            <div class="col-md-6 text-center">
+            <div class="col-md-4 ">
               <div class="form-group">
                 <label for="email">Email</label>
                 <input
                   type="text"
                   class="form-control"
                   id="email"
+                  placeholder="Email"
                   required
                   [(ngModel)]="necessiteux.email"
                   name="email"
@@ -91,13 +61,46 @@
               </div>
 
             </div>
-            <div class="col-md-6 text-center">
+            <hr class="horizontal dark">
+            <p class="text-uppercase text-sm">Contact Information</p>
+            <div class="col-md-4 ">
+              <div class="form-group">
+                <label for="address">Adresse</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="address"
+                  placeholder="Address"
+                  required
+                  [(ngModel)]="necessiteux.address"
+                  name="address"
+                />
+              </div>
+            </div>
+            <div class="col-md-4 ">
+              <div class="form-group">
+                <label for="phoneNumber">Télé </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="phone Number"
+                  id="phoneNumber"
+                  required
+                  [(ngModel)]="necessiteux.phoneNumber"
+                  name="phoneNumber"
+                />
+              </div>
+
+            </div>
+
+            <div class="col-md-4 ">
               <div class="form-group">
                 <label for="titre">Titre</label>
                 <input
                   type="text"
                   class="form-control"
                   id="titre"
+                  placeholder="Title"
                   required
                   [(ngModel)]="necessiteux.titre"
                   name="titre"
@@ -108,13 +111,39 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12 text-center">
+            <hr class="horizontal dark">
+            <p class="text-uppercase text-sm">Contact Information</p>
+
+
+          </div>
+          <div class="row">
+            <div class="col-md-3 ">
+
               <div class="form-group">
-                <label for="description">Description Situation </label>
+
+                <label for="firstName">Types de besoins</label>
+                <div class="dropdown">
+                  <button class="btn bg-gradient-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    types of needs
+                  </button>
+                  <ul  class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+                    <li><button class="dropdown-item" value="NEED_CLOTHES" (click)="money()">NEED MONEY</button></li>
+                    <li><a class="dropdown-item" value="NEED_FOOD"  (click)="clothes()">NEED CLOTHES</a></li>
+                    <li><a class="dropdown-item" value="NEED_MEDICINE"  (click)="food()">NEED FOOD</a></li>
+                  </ul>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="col-md-9 ">
+              <div class="form-group">
+                <label for="description">Description du besoin </label>
                 <textarea
                   type="text"
                   class="form-control"
                   id="description"
+                  placeholder="Veuillez décrire votre besoin de manière précise et détaillée afin que nous puissions trouver une solution adéquate à votre problème. "
                   required
                   [(ngModel)]="necessiteux.description"
                   name="description"
@@ -124,31 +153,7 @@
             </div>
 
           </div>
-          <div class="row">
-            <hr class="horizontal dark">
-            <div class="col-md-4"></div>
-            <div class="col-md-4 text-center">
 
-            <div class="form-group">
-
-              <label for="firstName">Types Of Needs</label>
-              <div class="dropdown">
-                <button class="btn bg-gradient-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                  types of needs
-                </button>
-                <ul  class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-                  <li><button class="dropdown-item" value="NEED_CLOTHES" (click)="money()">NEED MONEY</button></li>
-                  <li><a class="dropdown-item" value="NEED_FOOD"  (click)="clothes()">NEED CLOTHES</a></li>
-                  <li><a class="dropdown-item" value="NEED_MEDICINE"  (click)="food()">NEED FOOD</a></li>
-                </ul>
-              </div>
-
-            </div>
-
-          </div>
-            <div class="col-md-4"></div>
-
-          </div>
 
             <div class="row">
               <div class="col-md-12">
@@ -158,11 +163,9 @@
               </div>
             </div>
 
-
-
           <div *ngIf="submitted">
             <h4>Tutorial was submitted successfully!</h4>
-            <button class="btn btn-success" (click)="newTutorial()">Add</button>
+            <button class="btn btn-success mt-2" (click)="newTutorial()">Add</button>
           </div>
         </div>
       </div>
@@ -172,3 +175,4 @@
 
   </div>
 </div>
+
